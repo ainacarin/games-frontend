@@ -22,7 +22,7 @@ npm i servor json-server
 ### Servor
 To start up servor just run
 ```
-node_modules/.bin/servor src --reload
+npx servor src --reload
 ```
 
 The app will be running at http://localhost:8080, for the scope of this project, we will ignore an automatic redirect to index.html
@@ -30,5 +30,5 @@ The app will be running at http://localhost:8080, for the scope of this project,
 ### Json-server
 To start the local db running
 ```
-node_modules/.bin/json-server --watch ../../games/games.json --port 3033
+npx json-server --watch ./games/games.json
 ```
