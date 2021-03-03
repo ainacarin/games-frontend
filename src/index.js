@@ -1,4 +1,10 @@
 //TODO: #1 implementar api. Mirar en documentación
+const getGames = async () => {
+  const response = await fetch('http://localhost:3000/games');
+  //TODO: #1.1 implementar control de errores
+  return response.json();
+}
+
 async function drawListGames() {
     let games = await getGames();
     document.getElementById('games')
