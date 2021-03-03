@@ -13,6 +13,13 @@ const getGameById = async (gameId) => {
   return response.json();
 }
 
+const getCommentsOfGame = async (gameId) => {
+  const response = await fetch(`${endpoint}/games/${gameId}/comments?_expand=user`);
+    //TODO: #1.1 implementar control de errores
+    return response.json();
+}
+
+
 async function drawListGames() {
     let games = await getGames();
     document.getElementById('games')
