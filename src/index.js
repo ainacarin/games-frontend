@@ -1,6 +1,14 @@
+const endpoint = 'http://localhost:3000';
+
 //TODO: #1 implementar api. Mirar en documentación
 const getGames = async () => {
-  const response = await fetch('http://localhost:3000/games');
+  const response = await fetch(`${endpoint}/games`);
+  //TODO: #1.1 implementar control de errores
+  return response.json();
+}
+
+const getGameById = async (gameId) => {
+  const response = await fetch(`${endpoint}/games/${gameId}`);
   //TODO: #1.1 implementar control de errores
   return response.json();
 }
