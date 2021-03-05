@@ -1,41 +1,28 @@
-import { generateCommentSnippet, generateGameSnippet } from './functions.js'
-
-const endpoint = 'http://localhost:3000';
-
-//TODO: #1 implementar api. Mirar en documentación
-const getGames = async () => {
-  const response = await fetch(`${endpoint}/games`);
-  //TODO: #1.1 implementar control de errores
-  return response.json();
-}
-
-const getGameById = async (gameId) => {
-  const response = await fetch(`${endpoint}/games/${gameId}`);
-  //TODO: #1.1 implementar control de errores
-  return response.json();
-}
-
-const getCommentsOfGame = async (gameId) => {
-  const response = await fetch(`${endpoint}/games/${gameId}/comments?_expand=user`);
-    //TODO: #1.1 implementar control de errores
-    return response.json();
-}
+import { generateCommentSnippet, generateGameSnippet } from './functions.js';
+import { getGames, getGameById, getCommentsOfGame } from './api-handler.js';
 
 
-async function drawListGames() {
-    let games = await getGames();
-    document.getElementById('games')
-        .appendChild(document.createElement('ul'))
-        .setAttribute('id', 'games-list');
-    var i = 0;
-    for (i; i < games.length; i++) {
-        document.getElementById('games-list')
-            .appendChild(document.createElement('li')).innerHTML = generateGameSnippet(games[i]);
+export async function drawListGames() {
+    const games = await getGames();
+    // modificación para hacer uso de bootstrap
+    // contenedor con una fila para mostrar los juegos y se configura
+    const newDiv = document.createElement('div');
+    newDiv.setAttribute('id', 'game-list');
+    newDiv.setAttribute('class', 'row');
+    // se coge el súper contenedor y se inserta el contenedor anterior
+    document.getElementById('games').appendChild(newDiv);
+
+    for(let i = 0; i < games.length; i++) {
+      console.log('game', games[i])
+      const snippetContainer = document.createElement('div');
+      snippetContainer.setAttribute('class', 'col-6 col-sm-3');
+      document.getElementById('game-list')
+      .appendChild(snippetContainer).innerHTML = generateGameSnippet(games[i]);
     }
 }
 
-async function drawGame(gameId) {
-  let game = await getGameById(gameId);
+export async function drawGame(gameId) {
+  const game = await getGameById(gameId);
   document.getElementById('game-name-title').innerHTML = game.name;
   // TODO: #4 breadcrumb???? Let's use jQuery!!
   document.getElementById('game-image').src = game.image;
@@ -53,7 +40,7 @@ async function drawGame(gameId) {
 
 // TODO: #2 Pedir ayuda para generateCommentSnippet
 //email al correo de desarrollo y nos dan el código
-async function drawComments(gameId) {
+export async function drawComments(gameId) {
   console.log(gameId)
   let comments = await getCommentsOfGame(gameId);
   document.getElementById('comments')
