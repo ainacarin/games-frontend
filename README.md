@@ -32,3 +32,8 @@ To start the local db running
 ```
 npx json-server --watch ./games/games.json
 ```
+## PASOS PARA HACER FUNCIONAR en commit ae9aa9b 
+- npm i
+- npm i webpack-dev-server -D
+- npm run devServer
+-> acceder a url: localhost:8082
