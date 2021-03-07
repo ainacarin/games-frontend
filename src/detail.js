@@ -21,7 +21,7 @@ export async function drawGame(gameId) {
   // TODO: #2 Pedir ayuda para generateCommentSnippet
   //email al correo de desarrollo y nos dan el código
   export async function drawComments(gameId) {
-    console.log(gameId)
+    // console.log(gameId)
     let comments = await getCommentsOfGame(gameId);
     document.getElementById('comments')
         .appendChild(document.createElement('ul'))

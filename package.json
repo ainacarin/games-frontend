@@ -7,12 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production",
     "dev": "webpack --mode=development",
-    "devServer": "webpack serve --mode-development"
+    "devServer": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@webpack-cli/serve": "^1.3.0",
     "sass": "1.32.8",
     "webpack": "^5.24.2",
     "webpack-cli": "^3.3.12",
