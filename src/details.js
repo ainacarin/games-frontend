@@ -32,3 +32,15 @@ export async function drawGame(gameId) {
             .appendChild(document.createElement('li')).innerHTML = generateCommentSnippet(comments[i]);
     }
   }
+
+  // <script type="module">
+  // // https://developer.mozilla.org/es/docs/Web/API/URLSearchParams
+  // import {drawGame, drawComments} from './index.js';
+  
+  const gameId = parseInt((new URLSearchParams(window.location.search)).get('id'));
+
+  (async () => {
+    await drawGame(gameId);
+    await drawComments(gameId);
+  })();
+  // </script>
