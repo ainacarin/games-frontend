@@ -4,7 +4,7 @@ module.exports = {
     // mode: 'development'
     // mode: 'production'
     
-    entry: ['./src/index.js', './src/details.js'],
+    entry: ['./src/index.js', './src/detail.js'],
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'main.js'

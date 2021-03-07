@@ -13,7 +13,7 @@ export async function drawListGames() {
     document.getElementById('games').appendChild(newDiv);
 
     for(let i = 0; i < games.length; i++) {
-      console.log('game', games[i])
+      // console.log('game', games[i])
       const snippetContainer = document.createElement('div');
       snippetContainer.setAttribute('class', 'col-6 col-sm-3');
       document.getElementById('game-list')
