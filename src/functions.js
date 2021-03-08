@@ -1,4 +1,7 @@
-import "./styles.scss"
+import "./styles.scss";
+// solución a babel async/await no aplicada
+// import "core-js/stable";
+// import "regenerator-runtime/runtime";
 
 export function generateCommentSnippet(comment) {
     return `<div class="row">

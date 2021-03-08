@@ -37,3 +37,6 @@ npx json-server --watch ./games/games.json
 - npm i webpack-dev-server -D
 - npm run devServer
 -> acceder a url: localhost:8082
+
+## PAQUETES A INSTALAR PARA PLUGINS BABEL
+npm i -D @babel/plugin-proposal-async-generator-functions core-js@3 regenerator-runtime

@@ -7,6 +7,7 @@ module.exports = {
   module: {
     rules: [
       {
+        // Loader para scss
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
@@ -16,6 +17,17 @@ module.exports = {
           // Compiles Sass to CSS
           "sass-loader",
         ],
+      },
+      {
+        // Loader para versiones diferentes de navegadores 
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          // options: {
+          //   presets: ['@babel/preset-env']
+          // } //se pone en el archivo de configuración .babelrc
+        },
       }
     ]
   },
