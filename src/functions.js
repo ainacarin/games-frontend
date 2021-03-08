@@ -2,6 +2,8 @@ import "./styles.scss";
 // solución a babel async/await no aplicada
 // import "core-js/stable";
 // import "regenerator-runtime/runtime";
+// use bootstrap
+import "bootstrap";
 
 export function generateCommentSnippet(comment) {
     return `<div class="row">
