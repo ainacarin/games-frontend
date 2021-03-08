@@ -62,6 +62,11 @@ module.exports = {
     rules: loaders
   },
   plugins: plugins,
+  // optimization: {
+  //   splitChunks: {
+  //     maxSize: 102400
+  //   }
+  // },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
