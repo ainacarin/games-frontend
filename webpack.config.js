@@ -1,12 +1,15 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 module.exports = {
+  // punto de partida de todas las rutas para no estar escribiéndolas cte
+  context: __dirname + '/src',
   entry: {
-    main: "./src/index.js",
-    detail: "./src/detail.js"
+    main: "./index.js",
+    detail: "./detail.js"
   },
-  // output: {
-  //   filename: '[name].[contenthash].js'
-  // },
+  output: {
+    filename: '[name].[contenthash].js'
+  },
   module: {
     rules: [
       {
@@ -34,6 +37,18 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      filename: 'index.html',
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      template: './detail.html',
+      filename: 'detail.html',
+      chunks: ['detail']
+    })
+  ],
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
