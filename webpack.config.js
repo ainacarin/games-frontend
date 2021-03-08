@@ -4,6 +4,9 @@ module.exports = {
     main: "./src/index.js",
     detail: "./src/detail.js"
   },
+  // output: {
+  //   filename: '[name].[contenthash].js'
+  // },
   module: {
     rules: [
       {
