@@ -8,7 +8,9 @@ module.exports = {
     detail: "./detail.js"
   },
   output: {
-    filename: '[name].[contenthash].js'
+    filename: '[name].[contenthash].js',
+    // para que no queden archivos residuales de compilaciones anteriores
+    clean: true
   },
   module: {
     rules: [
